@@ -160,9 +160,21 @@ MonoBehaviour:
   HP: 0
   AttackPower: 0
   AttackRange: 0
+  ViewRange: 0
   rigidbody: {fileID: 0}
   animator: {fileID: 0}
-  idleTime: 0
-  moveTime: 0
+  idleTime: 1
+  moveTime: 1
   chaseSpeed: 0
+  agent: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 256
+  target: {fileID: 0}
+  wayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  targetWayPoint: {fileID: 0}
   zombieData: {fileID: 11400000, guid: 2c802ef5182abce40b3ae37299e89660, type: 2}

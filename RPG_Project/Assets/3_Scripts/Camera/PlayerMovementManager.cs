@@ -74,7 +74,6 @@ namespace CameraSetting
         
         private void HandleMovement()
         {
-            if (player.isPerformingAction) return;
 
             // 1. Input 클래스를 이용하여 키보드 입력을 제어
 
@@ -129,6 +128,7 @@ namespace CameraSetting
             // 점프키를 입력하여 점프 구현
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
+                player.playerAnimationManager.PlayerTargetActionAnimation("Jump", true, false);
 
                 playerAnimator.CrossFade("Jump", 0.2f);               // 두 번째 매개변수 : 현재 State에서 실행하고 싶은 애니메이션을 자동으로 Blend해주는 시간
                 movement.y = jumpForce;
@@ -154,6 +154,8 @@ namespace CameraSetting
 
         private void HandleActionInput()
         {
+            if (player.isPerformingAction) return;
+
             if (Input.GetMouseButtonDown(0))
             {
                 HandleAttackAction();

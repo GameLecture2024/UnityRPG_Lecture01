@@ -8,6 +8,7 @@ public class Entity : MonoBehaviour
     public int HP;
     public int AttackPower;
     public float AttackRange;
+    public float ViewRange;
 
     public Rigidbody rigidbody;
     public Animator animator;

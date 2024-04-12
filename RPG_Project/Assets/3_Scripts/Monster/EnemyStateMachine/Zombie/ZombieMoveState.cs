@@ -21,6 +21,8 @@ public class ZombieMoveState : EnemyState
     {
         base.Exit();
         Debug.Log("Move 상태 종료");
+        // Exit할 때 agent의 남은 거리가 있으면 해당 위치로 이동한다.
+        enemy.agent.ResetPath();
     }
 
     public override void Update()
@@ -28,10 +30,19 @@ public class ZombieMoveState : EnemyState
         base.Update();
 
         //enemy. NaveMeshAgnet 플레이어를 쫓는 기능
+        Transform target = enemy.SearchTarget();
 
-        if (stateTimer <= 0)
+        if (target)
+        {
+            enemy.agent.SetDestination(target.position);
+        }
+        else
         {
             stateMachine.ChangeState(enemy.IdleState);
         }
+
+        if (enemy.IsAvailableAttack)
+            stateMachine.ChangeState(enemy.attackState);
+
     }
 }

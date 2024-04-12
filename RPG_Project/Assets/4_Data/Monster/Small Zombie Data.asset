@@ -15,4 +15,5 @@ MonoBehaviour:
   zombieName: Small Zombie
   HP: 10
   Attack: 50
-  attackRange: 1
+  attackRange: 2.5
+  viewRange: 6

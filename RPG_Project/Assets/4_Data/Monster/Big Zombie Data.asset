@@ -15,4 +15,4 @@ MonoBehaviour:
   zombieName: Big Zombie
   HP: 30
   Attack: 70
-  attackRange: 3
+  attackRange: 4

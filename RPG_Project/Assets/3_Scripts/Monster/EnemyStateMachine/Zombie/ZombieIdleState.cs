@@ -28,9 +28,24 @@ public class ZombieIdleState : EnemyState
     {
         base.Update();
 
-        if(stateTimer <= 0)
+        Transform target = enemy.SearchTarget();
+        if (target)
         {
-            stateMachine.ChangeState(enemy.moveState);
+            if (enemy.IsAvailableAttack)
+            {
+                stateMachine.ChangeState(enemy.attackState);
+            }
+            else
+            {
+                stateMachine.ChangeState(enemy.moveState);
+            }
+        }
+        else
+        {
+            if (stateTimer <= 0)
+            {
+                stateMachine.ChangeState(enemy.patrolState);
+            }
         }
     }
 }

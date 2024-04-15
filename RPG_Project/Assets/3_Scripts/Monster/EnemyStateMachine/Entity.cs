@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 몬스터만 상속받을 것이 아니라 플레이어도 상속할 수 있게.
+/// </summary>
 public class Entity : MonoBehaviour
 {
     [Header("Status")]
     public int HP;
     public int AttackPower;
-    public float AttackRange;
-    public float ViewRange;
 
-    public Rigidbody rigidbody;
     public Animator animator;
 
     protected virtual void Awake()
@@ -30,7 +30,6 @@ public class Entity : MonoBehaviour
 
     public virtual void OnLoadComponents()
     {
-        rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
 

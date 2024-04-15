@@ -9,11 +9,17 @@ public class Enemy : Entity
     public float idleTime;                 // idle 상태 시간
     public float moveTime;                 // 추적 시간
     public float chaseSpeed;               // 추적 속도
+    public float AttackRange;
+    public float ViewRange;
 
+    #region Components
     public EnemyStateMachine stateMachine { get; private set; }
     public NavMeshAgent agent;
+    public Rigidbody rigidbody;
+    #endregion
 
     [Header("Search Target")]
+    private FieldOfView fov;
     public LayerMask targetMask;           // 타겟 지정 레이어 마스크
     public Transform target;
 
@@ -36,7 +42,9 @@ public class Enemy : Entity
     public override void OnLoadComponents()
     {
         base.OnLoadComponents();
+        rigidbody = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
+        fov = GetComponent<FieldOfView>();
     }
 
     public bool IsAvailableAttack
@@ -61,14 +69,7 @@ public class Enemy : Entity
 
     public Transform SearchTarget()
     {
-        target = null;
-
-        Collider[] targetInViewRadius = Physics.OverlapSphere(transform.position, ViewRange, targetMask);
-
-        if(targetInViewRadius.Length > 0)
-        {
-            target = targetInViewRadius[0].transform;
-        }
+        var target = fov.NearestTarget;
 
         return target;
     }

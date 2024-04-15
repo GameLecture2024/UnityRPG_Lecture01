@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(FieldOfView))]
 public class Enemy_Zombie : Enemy
 {
     #region State

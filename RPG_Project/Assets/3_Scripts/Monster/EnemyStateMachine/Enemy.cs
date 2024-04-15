@@ -69,7 +69,7 @@ public class Enemy : Entity
 
     public Transform SearchTarget()
     {
-        var target = fov.NearestTarget;
+        this.target = fov.NearestTarget;
 
         return target;
     }

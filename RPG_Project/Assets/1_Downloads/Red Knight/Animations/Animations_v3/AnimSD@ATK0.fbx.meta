@@ -540,8 +540,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0
-        functionName: AnimationTest
+      - time: 0.30357143
+        functionName: AttackTrigger
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -1435,7 +1435,8 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: f6ea48566e261a24c899951cb7f1f6c5, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: f6ea48566e261a24c899951cb7f1f6c5,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1

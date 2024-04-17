@@ -3,11 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour, ISaveManager
+public class PlayerManager : Player, ISaveManager
 {
     [Header("Common Player Data")]
     [HideInInspector] public CharacterController characterController;
-    [HideInInspector] public Animator animator;
 
     [Header("플레이어 제약 조건")]
     public bool isPerformingAction = false;
@@ -20,13 +19,13 @@ public class PlayerManager : MonoBehaviour, ISaveManager
     [HideInInspector] public PlayerAnimationManager playerAnimationManager;
     [HideInInspector] public PlayerMovementManager playerMovementManager;
     [HideInInspector] public PlayerAudioManager playerAudioManager;
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         playerAnimationManager = GetComponent<PlayerAnimationManager>();
         playerMovementManager = GetComponent<PlayerMovementManager>();
         playerAudioManager = GetComponent<PlayerAudioManager>();
         characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
     }
 
     public void SaveData(ref GameData gameData)   // GameData 클래스에 플레이어의 현재 좌표를 저장

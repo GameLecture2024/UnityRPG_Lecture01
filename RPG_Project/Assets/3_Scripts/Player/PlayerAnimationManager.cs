@@ -25,12 +25,18 @@ public class PlayerAnimationManager : MonoBehaviour
         player.canMove = canMove;
     }
 
-
-    public void AnimationTest() // Attack에 있는 애니메이션 이벤트를 삭제한 후 에 이 함수를 삭제하세요
+    private void AttackTrigger()
     {
-        // 애니메이션 공격 이팩트 실행
+        Collider[] colliders = player.manualCollider.GetColliderObject();
+        foreach(var hit in colliders)
+        {
+            if(hit.GetComponentInParent<Enemy>() != null)
+            {
+                // TakeDamage
+                Enemy_Zombie enemy = hit.GetComponentInParent<Enemy_Zombie>();
+                enemy.TakeDamage(player.AttackPower, player.transform.position);
 
-        Debug.Log(" 공격 첫번째 애니메이션이 실행되었다.");
+            }
+        }
     }
-
 }

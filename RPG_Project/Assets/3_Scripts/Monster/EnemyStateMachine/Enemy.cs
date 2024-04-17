@@ -103,6 +103,11 @@ public class Enemy : Entity
         return targetWayPoint;
     }
 
+    public override void TakeDamage(int damage, Vector3 contactPos, GameObject hitEffectPrefabs = null)
+    {
+        base.TakeDamage(damage, contactPos, hitEffectPrefabs);
+    }
+
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;

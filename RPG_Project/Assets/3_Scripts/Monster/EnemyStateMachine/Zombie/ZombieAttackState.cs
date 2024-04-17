@@ -13,7 +13,6 @@ public class ZombieAttackState : EnemyState
     public override void Enter()      // 공격 상태로 진입!
     {
         base.Enter();
-        Debug.Log("Attack 상태 진입");
 
         if(!enemy.IsAvailableAttack)   // true이면 공격 가능하다. false이면 공격을 못한다.
         {

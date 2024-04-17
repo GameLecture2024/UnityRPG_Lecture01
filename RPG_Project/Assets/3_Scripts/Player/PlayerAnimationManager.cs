@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class PlayerAnimationManager : MonoBehaviour
 {
@@ -33,4 +35,20 @@ public class PlayerAnimationManager : MonoBehaviour
         Debug.Log(" 공격 첫번째 애니메이션이 실행되었다.");
     }
 
+    private void AttackTrigger()
+    {
+        if (player.isDead) return;
+
+        Collider[] colliders = player.attackCollision.CheckOverlapBox();
+
+        foreach (var hit in colliders)
+        {
+            if (hit.GetComponentInParent<Enemy>() != null)
+            {
+
+                Enemy_Zombie enemy = hit.GetComponentInParent<Enemy_Zombie>();
+                enemy.TakeDamage(player.AttackPower, player.transform.position);
+            }
+        }
+    }
 }

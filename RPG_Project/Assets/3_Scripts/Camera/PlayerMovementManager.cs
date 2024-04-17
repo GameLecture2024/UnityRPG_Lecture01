@@ -55,9 +55,8 @@ namespace CameraSetting
         // Update is called once per frame 컴퓨터가 좋을 수록 frame이 많이 생성되고 Update도 많이 호출 됩니다.
         void Update()
         {
-            HandleMovement();
-            HandleComboAttack();
-            HandleActionInput();            
+            if(!player.isDead)
+                HandleMovement();      
         }
 
         private void GroundCheck() // 플레이어가 땅인지 아닌지 판별하는 함수
@@ -74,6 +73,7 @@ namespace CameraSetting
         
         private void HandleMovement()
         {
+            // 0. 이동 제어
 
             // 1. Input 클래스를 이용하여 키보드 입력을 제어
 
@@ -128,7 +128,7 @@ namespace CameraSetting
             // 점프키를 입력하여 점프 구현
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
-                player.playerAnimationManager.PlayerTargetActionAnimation("Jump", true, false);
+                player.playerAnimationManager.PlayerTargetActionAnimation("Jump", true, false, true, true);
 
                 playerAnimator.CrossFade("Jump", 0.2f);               // 두 번째 매개변수 : 현재 State에서 실행하고 싶은 애니메이션을 자동으로 Blend해주는 시간
                 movement.y = jumpForce;
@@ -148,36 +148,13 @@ namespace CameraSetting
             }
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, smoothRotation);
-            cCon.Move(movement * Time.deltaTime);
-            playerAnimator.SetFloat("moveAmount", moveAmount, 0.2f, Time.deltaTime);           // dampTime : 1번째 변수(이전 값), 2번째 변수(변화 시키고 싶은 값)  
-        }
 
-        private void HandleActionInput()
-        {
-            if (player.isPerformingAction) return;
-
-            if (Input.GetMouseButtonDown(0))
+            if (player.canMove)
             {
-                HandleAttackAction();
+                cCon.Move(movement * Time.deltaTime);
+                playerAnimator.SetFloat("moveAmount", moveAmount, 0.2f, Time.deltaTime);           // dampTime : 1번째 변수(이전 값), 2번째 변수(변화 시키고 싶은 값)  
             }
-        }
 
-        private void HandleAttackAction()
-        {
-            player.playerAnimationManager.PlayerTargetActionAnimation("ATK0", true);
-            player.canCombo = true;                                                    // canCombo True일 대만 콤보 어택을 할 수 있게 제어 변수 선언
-        }
-
-        private void HandleComboAttack()
-        {
-            if (!player.canCombo) return; // 예외 사항 처리
-
-            // 콤보 어택을 사용할 입력 키 설정
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                player.animator.SetTrigger("doAttack");
-            }
         }
     }
 

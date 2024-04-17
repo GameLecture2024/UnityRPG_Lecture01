@@ -10,10 +10,15 @@ public class Enemy : Entity
     public float moveTime;                 // 추적 시간
     public float chaseSpeed;               // 추적 속도
 
+    [Header("Components")]
+    public Rigidbody rigidbody;
+    public Animator animator;
     public EnemyStateMachine stateMachine { get; private set; }
     public NavMeshAgent agent;
+    public EnemyAttackManager enemyAttackManager; 
 
     [Header("Search Target")]
+    private FieldOfView fov;
     public LayerMask targetMask;           // 타겟 지정 레이어 마스크
     public Transform target;
 
@@ -21,10 +26,28 @@ public class Enemy : Entity
     [SerializeField] private Transform[] wayPoints;               // 탐색할 위치 경로
     [HideInInspector] public Transform targetWayPoint = null;
     private int wayPointIndex = 0;
+
+    public Transform hitSpawnPos;
+
+    [Header("Battle UI")]
+    [SerializeField] protected NPCBattleUI battleUI;
+
     protected override void Awake()
     {
         base.Awake();
         stateMachine = new EnemyStateMachine();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        if (battleUI)
+        {
+            battleUI.MinimumValue = 0.0f;
+            battleUI.MaximumValue = MaxHP;
+            battleUI.Value = HP;
+        }
     }
 
     protected override void Update()
@@ -36,7 +59,11 @@ public class Enemy : Entity
     public override void OnLoadComponents()
     {
         base.OnLoadComponents();
+        fov = GetComponent<FieldOfView>();
         agent = GetComponent<NavMeshAgent>();
+        rigidbody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+        enemyAttackManager = GetComponent<EnemyAttackManager>();
     }
 
     public bool IsAvailableAttack
@@ -61,15 +88,7 @@ public class Enemy : Entity
 
     public Transform SearchTarget()
     {
-        target = null;
-
-        Collider[] targetInViewRadius = Physics.OverlapSphere(transform.position, ViewRange, targetMask);
-
-        if(targetInViewRadius.Length > 0)
-        {
-            target = targetInViewRadius[0].transform;
-        }
-
+        target = fov.NearesetTarget;
         return target;
     }
 

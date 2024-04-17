@@ -1,0 +1,82 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[System.Serializable]
+public class Modifier
+{
+    [NonSerialized]
+    private int baseValue;
+
+    [SerializeField]
+    private int modifiedValue;
+
+    public int BaseValue
+    {
+        get => baseValue;
+        set
+        {
+            baseValue = value;
+            UpdateModifiedValue();
+        }
+    }
+
+    public int ModifiedValue
+    {
+        get => modifiedValue;
+        set => modifiedValue = value;
+    }
+
+    private event Action<Modifier> OnModifiedValue;
+
+    private List<IModifier> modifiers = new List<IModifier>();
+
+    public Modifier(Action<Modifier> method = null)
+    {
+        ModifiedValue = baseValue;
+        RegisterModEvent(method);
+
+    }
+
+    public void RegisterModEvent(Action<Modifier> method)
+    {
+        if (method != null)
+        {
+            OnModifiedValue += method;
+        }
+    }
+
+    public void UnregisterModEvent(Action<Modifier> method)
+    {
+        if (method != null)
+        {
+            OnModifiedValue -= method;
+        }
+    }
+
+    private void UpdateModifiedValue()
+    {
+        int valueToAdd = 0;
+        foreach (IModifier modifier in modifiers)
+        {
+            modifier.AddValue(ref valueToAdd);
+        }
+
+        ModifiedValue = baseValue + valueToAdd;
+
+        OnModifiedValue?.Invoke(this);
+    }
+
+    public void AddModifier(IModifier modifier)
+    {
+        modifiers.Add(modifier);
+        UpdateModifiedValue();
+    }
+
+    public void RemoveModifier(IModifier modifier)
+    {
+        modifiers.Remove(modifier);
+        UpdateModifiedValue();
+    }
+}

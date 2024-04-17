@@ -13,14 +13,12 @@ public class ZombieMoveState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Move 상태 진입");
         stateTimer = enemy.moveTime;   // Idle 상태를 지속하는 시간을 초기화
     }
 
     public override void Exit()
     {
         base.Exit();
-        Debug.Log("Move 상태 종료");
         // Exit할 때 agent의 남은 거리가 있으면 해당 위치로 이동한다.
         enemy.agent.ResetPath();
     }

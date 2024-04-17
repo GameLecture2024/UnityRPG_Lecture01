@@ -16,6 +16,7 @@ public class Enemy : Entity
     public EnemyStateMachine stateMachine { get; private set; }
     public NavMeshAgent agent;
     public Rigidbody rigidbody;
+    public EnemyAttackManager attackmanager;
     #endregion
 
     [Header("Search Target")]
@@ -27,10 +28,17 @@ public class Enemy : Entity
     [SerializeField] private Transform[] wayPoints;               // 탐색할 위치 경로
     [HideInInspector] public Transform targetWayPoint = null;
     private int wayPointIndex = 0;
+
+    public NPCBattleUI battleUI;
+
     protected override void Awake()
     {
         base.Awake();
         stateMachine = new EnemyStateMachine();
+
+        battleUI.MinValue = 0;
+        battleUI.MaxValue = HP;
+        battleUI.Value = HP;
     }
 
     protected override void Update()
@@ -45,6 +53,7 @@ public class Enemy : Entity
         rigidbody = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
         fov = GetComponent<FieldOfView>();
+        attackmanager = GetComponent<EnemyAttackManager>();
     }
 
     public bool IsAvailableAttack

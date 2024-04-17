@@ -55,6 +55,8 @@ namespace CameraSetting
         // Update is called once per frame 컴퓨터가 좋을 수록 frame이 많이 생성되고 Update도 많이 호출 됩니다.
         void Update()
         {
+            if (player.isDead) return;
+
             HandleMovement();
             HandleComboAttack();
             HandleActionInput();            
@@ -148,8 +150,13 @@ namespace CameraSetting
             }
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, smoothRotation);
-            cCon.Move(movement * Time.deltaTime);
-            playerAnimator.SetFloat("moveAmount", moveAmount, 0.2f, Time.deltaTime);           // dampTime : 1번째 변수(이전 값), 2번째 변수(변화 시키고 싶은 값)  
+            
+            if (player.canMove)
+            {
+                cCon.Move(movement * Time.deltaTime);
+                playerAnimator.SetFloat("moveAmount", moveAmount, 0.2f, Time.deltaTime);           // dampTime : 1번째 변수(이전 값), 2번째 변수(변화 시키고 싶은 값)  
+            }
+           
         }
 
         private void HandleActionInput()

@@ -57,6 +57,8 @@ public class Enemy_Zombie : Enemy
             animator?.CrossFade("Hit", 0.2f);
             transform.forward = contactPos;
             stateMachine.ChangeState(IdleState);
+
+            battleUI.Value = HP;
         }
         else
         {

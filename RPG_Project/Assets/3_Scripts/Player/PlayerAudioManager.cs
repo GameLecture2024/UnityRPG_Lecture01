@@ -13,13 +13,13 @@ public class PlayerAudioManager : MonoBehaviour
 
     public void PlayFootStepSFX()
     {
-        if(!audiosource.isPlaying)
+        if(!audiosource.isPlaying && !SoundManager.Instance.footStepSFX)
           audiosource.PlayOneShot(SoundManager.Instance.footStepSFX);
     }
 
     public void PlayJumpSFX()
     {
-        if(!audiosource.isPlaying)
+        if(!audiosource.isPlaying && !SoundManager.Instance.CandleSFX)
           audiosource.PlayOneShot(SoundManager.Instance.CandleSFX);
     }
 

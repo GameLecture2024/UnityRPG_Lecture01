@@ -14,7 +14,7 @@ public class PlayerStatsUI : MonoBehaviour
     // ScriptableObject를 코드를 작성할 때 Reference의 데이터를 변경시키지 않게 하기 위해서 데이터를 Instance(Copy)해서 사용한다.
     private void Awake()
     {
-        playerData = Instantiate(playerData) as PlayerData;
+        //playerData = Instantiate(playerData) as PlayerData;
     }
     public void OnStatChangeTest()
     {

@@ -15,11 +15,21 @@ public class PlayerInGameUI : MonoBehaviour
 
     public GameObject gameOverUI;
 
+    // UI scripts Components
+    public PlayerStatsUI playerStatsUI;
 
     public void InitializeSlider()
     {
         hpSlider.fillAmount = (float)player.HP / (float)player.MAXHP;
         mpSlider.fillAmount = (float)player.MP / (float)player.MAXMP;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("i"))
+        {
+            playerStatsUI.gameObject.SetActive(!playerStatsUI.gameObject.activeSelf);
+        }
     }
 
 

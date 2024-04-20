@@ -42,7 +42,7 @@ public class Enemy_Zombie : Enemy
     public override void OnLoadComponents()
     {
         base.OnLoadComponents();
-        HP = zombieData.HP;
+        MAXHP = zombieData.HP;
         AttackPower = zombieData.Attack;
         AttackRange = zombieData.attackRange;
         ViewRange = zombieData.viewRange;
@@ -54,10 +54,14 @@ public class Enemy_Zombie : Enemy
 
         if (IsAlive)
         {
-            animator?.CrossFade("Hit", 0.2f);
-            transform.forward = contactPos;
-            stateMachine.ChangeState(IdleState);
+            if (!target)
+            {
+                transform.forward = contactPos;
+                agent.SetDestination(contactPos);
+            }
 
+            animator?.CrossFade("Hit", 0.2f);
+            stateMachine.ChangeState(IdleState);
             battleUI.Value = HP;
         }
         else

@@ -37,8 +37,8 @@ public class Enemy : Entity
         stateMachine = new EnemyStateMachine();
 
         battleUI.MinValue = 0;
-        battleUI.MaxValue = HP;
-        battleUI.Value = HP;
+        battleUI.MaxValue = MAXHP;
+        battleUI.Value = MAXHP;
     }
 
     protected override void Update()

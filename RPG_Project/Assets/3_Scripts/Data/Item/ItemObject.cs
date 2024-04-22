@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Slot에서 아이템 장착할 때 Type을 판별하기 위한 용도
+/// </summary>
 public enum ItemType
 {
     Helmet = 0,

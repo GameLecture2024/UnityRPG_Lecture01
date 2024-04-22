@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Buff", menuName = "Data/Stats Buff")]
-public class Buff : ScriptableObject, IModifier
+
+[System.Serializable]
+public class Buff : IModifier
 {
     public StatType type;
 

@@ -10,6 +10,8 @@ public enum ItemType
     Helmet = 0,
     Boots,
     Weapon,
+    Shield,
+    Potion,
     Default
 }
 

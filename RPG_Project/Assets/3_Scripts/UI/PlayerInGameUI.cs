@@ -17,7 +17,8 @@ public class PlayerInGameUI : MonoBehaviour
 
     // UI scripts Components
     public PlayerStatsUI playerStatsUI;
-
+    public DynamicInventory dynamicInventory;
+    public StaticInventoryUI staticInventory;
     public void InitializeSlider()
     {
         hpSlider.fillAmount = (float)player.HP / (float)player.MAXHP;
@@ -29,6 +30,16 @@ public class PlayerInGameUI : MonoBehaviour
         if (Input.GetKeyDown("i"))
         {
             playerStatsUI.gameObject.SetActive(!playerStatsUI.gameObject.activeSelf);
+        }
+
+        if (Input.GetKeyDown("o"))
+        {
+            staticInventory.gameObject.SetActive(!staticInventory.gameObject.activeSelf);
+        }
+
+        if(Input.GetKeyDown("p"))
+        {
+            dynamicInventory.gameObject.SetActive(!dynamicInventory.gameObject.activeSelf);
         }
     }
 

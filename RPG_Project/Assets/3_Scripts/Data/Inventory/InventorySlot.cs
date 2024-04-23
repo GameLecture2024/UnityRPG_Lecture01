@@ -8,9 +8,8 @@ public class InventorySlot
 {
     public ItemType[] allowItems = new ItemType[0];
 
-    public InventoryObject parent;
-
-    public GameObject slotUI;
+    [NonSerialized] public InventoryObject parent;
+    [NonSerialized] public GameObject slotUI;
 
     public Action<InventorySlot> OnPreUpdate;
     public Action<InventorySlot> OnPostUpdate;

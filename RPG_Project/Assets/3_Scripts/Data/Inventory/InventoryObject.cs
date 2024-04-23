@@ -103,4 +103,11 @@ public class InventoryObject : ScriptableObject
 
         OnUseItem.Invoke(itemObject);
     }
+
+    [ContextMenu("Clear")]
+    public void Clear()
+    {
+        container.Clear();
+    }
+
 }

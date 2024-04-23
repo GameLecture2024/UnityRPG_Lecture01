@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   stackable: 0
-  icon: {fileID: 21300000, guid: 983795e8763a4db4393844b4cc3b7147, type: 3}
+  icon: {fileID: 21300000, guid: 185ce0f0525e01147b1cc1e20f22f169, type: 3}
   modelPrefab: {fileID: 0}
   data:
-    id: 1
+    id: 0
     name: "\uD50C\uB808\uC774\uC5B4\uC758 \uD5EC\uB9F7"
     buffs:
     - type: 0

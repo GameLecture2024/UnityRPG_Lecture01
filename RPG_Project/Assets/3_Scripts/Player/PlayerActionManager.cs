@@ -57,6 +57,14 @@ public class PlayerActionManager : MonoBehaviour
 
     private void OnUseItem(ItemObject itemObject)
     {
+        // 포션 사용 시 기능
+        if(itemObject.type == ItemType.Potion)
+        {
+            Debug.Log("Potion User!");
+            return;
+        }
+
+        // 버프 적용 시 기능 
         foreach (Buff buff in itemObject.data.buffs)
         {
             foreach (Stat stat in player.playerData.stats)

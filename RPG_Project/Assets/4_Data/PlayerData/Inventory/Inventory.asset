@@ -18,99 +18,116 @@ MonoBehaviour:
     slots:
     - allowItems: 
       item:
-        id: -1
-        name: 
-        buffs: []
-      amount: 0
-    - allowItems: 
-      item:
-        id: -1
-        name: 
-        buffs: []
-      amount: 0
-    - allowItems: 
-      item:
-        id: -1
-        name: 
-        buffs: []
-      amount: 0
-    - allowItems: 
-      item:
-        id: -1
-        name: 
-        buffs: []
-      amount: 0
-    - allowItems: 
-      item:
-        id: -1
-        name: 
-        buffs: []
-      amount: 0
-    - allowItems: 
-      item:
-        id: -1
-        name: 
-        buffs: []
-      amount: 0
-    - allowItems: 
-      item:
-        id: -1
-        name: 
-        buffs: []
-      amount: 0
-    - allowItems: 
-      item:
         id: 3
+        name: Shield
+        buffs:
+        - type: 0
+          value: 10
+        - type: 3
+          value: 10
+      amount: 1
+    - allowItems: 
+      item:
+        id: 2
+        name: Sword
+        buffs:
+        - type: 2
+          value: 10
+        - type: 2
+          value: 10
+      amount: 1
+    - allowItems: 
+      item:
+        id: 1
+        name: Boots
+        buffs:
+        - type: 0
+          value: 10
+        - type: 3
+          value: 10
+      amount: 1
+    - allowItems: 
+      item:
+        id: 0
+        name: Helmet
+        buffs:
+        - type: 0
+          value: 10
+        - type: 3
+          value: 10
+      amount: 1
+    - allowItems: 
+      item:
+        id: -1
+        name: 
+        buffs: []
+      amount: 0
+    - allowItems: 
+      item:
+        id: -1
+        name: 
+        buffs: []
+      amount: 0
+    - allowItems: 
+      item:
+        id: -1
+        name: 
+        buffs: []
+      amount: 0
+    - allowItems: 
+      item:
+        id: -1
+        name: 
+        buffs: []
+      amount: 0
+    - allowItems: 
+      item:
+        id: -1
+        name: 
+        buffs: []
+      amount: 0
+    - allowItems: 
+      item:
+        id: -1
+        name: 
+        buffs: []
+      amount: 0
+    - allowItems: 
+      item:
+        id: -1
+        name: 
+        buffs: []
+      amount: 0
+    - allowItems: 
+      item:
+        id: -1
+        name: 
+        buffs: []
+      amount: 0
+    - allowItems: 
+      item:
+        id: -1
+        name: 
+        buffs: []
+      amount: 0
+    - allowItems: 
+      item:
+        id: -1
+        name: 
+        buffs: []
+      amount: 0
+    - allowItems: 
+      item:
+        id: -1
+        name: 
+        buffs: []
+      amount: 0
+    - allowItems: 
+      item:
+        id: 4
         name: Potion
         buffs:
         - type: 0
           value: 10
-      amount: 3
-    - allowItems: 
-      item:
-        id: -1
-        name: 
-        buffs: []
-      amount: 0
-    - allowItems: 
-      item:
-        id: -1
-        name: 
-        buffs: []
-      amount: 0
-    - allowItems: 
-      item:
-        id: -1
-        name: 
-        buffs: []
-      amount: 0
-    - allowItems: 
-      item:
-        id: -1
-        name: 
-        buffs: []
-      amount: 0
-    - allowItems: 
-      item:
-        id: -1
-        name: 
-        buffs: []
-      amount: 0
-    - allowItems: 
-      item:
-        id: -1
-        name: 
-        buffs: []
-      amount: 0
-    - allowItems: 
-      item:
-        id: -1
-        name: 
-        buffs: []
-      amount: 0
-    - allowItems: 
-      item:
-        id: -1
-        name: 
-        buffs: []
-      amount: 0
+      amount: 5
+  savePath: inventory

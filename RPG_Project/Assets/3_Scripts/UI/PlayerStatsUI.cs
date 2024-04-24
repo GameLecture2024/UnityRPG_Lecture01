@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class PlayerStatsUI : MonoBehaviour
 {
-    public Buff buff;
-
     public PlayerData playerData;
+    public InventoryObject equipment;
 
     public TextMeshProUGUI[] statText;             // 0: MaxHp, 1: MaxMp, 2: AttackPower, 3: DefensePower
 
@@ -15,32 +14,62 @@ public class PlayerStatsUI : MonoBehaviour
     private void Awake()
     {
         //playerData = Instantiate(playerData) as PlayerData;
-    }
-    public void OnStatChangeTest()
-    {
-        // 테스트를 위한 코드 작성
-        foreach(var stat in playerData.stats)
+
+        if(equipment == null || playerData == null)
         {
-            if(stat.type == buff.type)
+            Debug.LogError("인벤토리 또는 플레이어 데이터 오브젝트가 null 인지 확인해주세요.");
+            return;
+        }
+
+        foreach(var slot in equipment.Slots)
+        {
+            slot.OnPreUpdate += OnRemoveItem;
+            slot.OnPostUpdate += OnEquipItem;
+        }
+
+    }
+
+    public void OnRemoveItem(InventorySlot slot)
+    {
+        if (slot.itemObject == null) return;
+
+        if(slot.parent.type == InterfaceType.Equipment)
+        {
+            foreach(var buff in slot.item.buffs)
             {
-                stat.value.Addmodifier(buff);
+                foreach (var stat in playerData.stats)
+                {
+                    if (stat.type == buff.type)
+                    {
+                        stat.value.RemoveModifier(buff);
+                    }
+                }
             }
         }
     }
 
-    // 테스트하고 삭제해야할 변수
-    public bool Test = false;
+    public void OnEquipItem(InventorySlot slot)
+    {
+        if (slot.itemObject == null) return;
+
+        if (slot.parent.type == InterfaceType.Equipment)
+        {
+            foreach (var buff in slot.item.buffs)
+            {
+                foreach (var stat in playerData.stats)
+                {
+                    if (stat.type == buff.type)
+                    {
+                        stat.value.Addmodifier(buff);
+                    }
+                }
+            }
+        }
+    }
+
 
     private void Update()
     {
-        if (Test)
-        {
-            Test = false;
-            OnStatChangeTest();
-        }
-
-        int tempValue = playerData.MaxHp + 100;
-
         UpdateStatText();
     }
 

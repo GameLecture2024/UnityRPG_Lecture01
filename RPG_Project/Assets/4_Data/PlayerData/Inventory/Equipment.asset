@@ -17,26 +17,21 @@ MonoBehaviour:
   container:
     slots:
     - allowItems: 00000000
-      parent: {fileID: 0}
-      slotUI: {fileID: 0}
       item:
         id: -1
         name: 
         buffs: []
       amount: 0
     - allowItems: 01000000
-      parent: {fileID: 0}
-      slotUI: {fileID: 0}
       item:
         id: -1
         name: 
         buffs: []
       amount: 0
     - allowItems: 02000000
-      parent: {fileID: 0}
-      slotUI: {fileID: 0}
       item:
         id: -1
         name: 
         buffs: []
       amount: 0
+  savePath: equipment

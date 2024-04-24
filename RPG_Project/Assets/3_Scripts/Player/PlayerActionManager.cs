@@ -4,7 +4,7 @@ using Unity.Burst.CompilerServices;
 using UnityEngine;
 using static UnityEditor.Progress;
 
-public class PlayerActionManager : MonoBehaviour
+public class PlayerActionManager : MonoBehaviour, ISaveManager
 {
     PlayerManager player;
 
@@ -106,5 +106,15 @@ public class PlayerActionManager : MonoBehaviour
             Gizmos.DrawRay(camera.transform.position, camera.transform.forward * maxDistance);
         }
 
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        gameData.inventory = inventory.container;
+    }
+
+    public void LoadData(GameData gameData)
+    {
+        //inventory.container = gameData.inventory;
     }
 }

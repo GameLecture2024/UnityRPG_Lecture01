@@ -1,23 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEditor.Rendering;
 using UnityEngine;
 
 public enum InterfaceType
 {
-    Equipment, Invenotry,
+    Equipment, Invenotry, QuickSlot
 }
 
 [CreateAssetMenu(fileName = "new Inventory", menuName = "Data/Inventory")]
+[System.Serializable]
 public class InventoryObject : ScriptableObject
 {
     public ItemDatabase database;
     public InterfaceType type;
 
     // Equipment의 인벤토리 슬롯 갯수, Inventory 슬롯 개수 등의 정보가 다르기 때문에, 각각의 정보를 담는 Container 역할
-    [SerializeField] private Inventory container = new Inventory();
+    [SerializeField] public Inventory container = new Inventory();
 
     public InventorySlot[] Slots => container.slots;
     public Action<ItemObject> OnUseItem;
@@ -110,4 +114,27 @@ public class InventoryObject : ScriptableObject
         container.Clear();
     }
 
+    public string savePath;
+
+    [ContextMenu("Save")]
+    public void SaveData()
+    {     
+        IFormatter formatter = new BinaryFormatter();
+        Stream stream = new FileStream(Application.persistentDataPath + "/" + savePath + ".txt", FileMode.Create, FileAccess.Write);
+        formatter.Serialize(stream, container);
+        stream.Close();
+    }
+    [ContextMenu("Load")]
+    public void LoadData()
+    {
+        IFormatter formatter = new BinaryFormatter();
+        Stream stream = new FileStream(Application.persistentDataPath + "/" + savePath + ".txt", FileMode.Open, FileAccess.Read);
+        Inventory newContainer = formatter.Deserialize(stream) as Inventory;
+
+        for(int i =0; i< Slots.Length; i++)
+        {
+            Slots[i].AddItem(newContainer.slots[i].item, newContainer.slots[i].amount);
+        }
+        stream.Close();
+    }
 }

@@ -15,5 +15,7 @@ public class GameData
 
     public string playerName; // 플레이어의 이름을 저장하는 변수
 
+    public Inventory inventory; // 플레이어의 인벤토리 데이터
+
     public SerializableDictionary<string, float> volumeSettings; // 볼륨 설정을 Dictionary로 저장
 }

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d3c7570534a0345ac9b003bf7940ad, type: 3}
   m_Name: Potion
   m_EditorClassIdentifier: 
-  type: 3
+  type: 4
   stackable: 1
   icon: {fileID: 21300000, guid: 38daf72cb2e0ac0408f28c0cd87a00cf, type: 3}
   modelPrefab: {fileID: 0}
   data:
-    id: 3
+    id: 4
     name: "\uD3EC\uC158"
     buffs:
     - type: 0

@@ -13,14 +13,16 @@ public class FadeEffect : MonoBehaviour
     public FadeState fadeState;
     private Image image => GetComponent<Image>();          // Ui.Image 오브젝트 위에 클래스 컴포넌트로 존재해야한다.
 
+    public delegate void FadeOutCallBack();                // OnFade가 Delegate로 함수를 매개변수 받기 위해 선언
+
     private void Start()
     {
         // UI에 있는 Image에 접근해서. Color 접근 알파 값을 0으로 만들면 된다. 1로 만들면 된다.
         // 코루틴 실행, 함수 실행 
-        OnFade(fadeState);
+        // OnFade(fadeState);
     }
 
-    public void OnFade(FadeState state)
+    public void OnFade(FadeState state, FadeOutCallBack callBack)
     {
         fadeState = state;
 
@@ -49,7 +51,8 @@ public class FadeEffect : MonoBehaviour
                 percent = timevalue / fadeTime;            // 0 ~ 1 사이 값을 갖고, fade의 Lerp 시간을 결정하는 percent 값
 
                 Color color = image.color;
-                color.a = Mathf.Lerp(start, end, fadeCurve.Evaluate(percent));  // 애니메이션 커브에 따른 페이드 효과 구현
+                //color.a = Mathf.Lerp(start, end, fadeCurve.Evaluate(percent));  // 애니메이션 커브에 따른 페이드 효과 구현
+                color.a = Mathf.Lerp(start, end, percent);  // 애니메이션 커브에 따른 페이드 효과 구현
                 image.color = color;
 
                 yield return null;

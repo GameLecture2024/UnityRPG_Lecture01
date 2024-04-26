@@ -36,7 +36,7 @@ public class DialogueSystem : MonoBehaviour
     public float textSpeed = 0.2f;
     public bool isTypeing = false;
 
-    void Setup()
+    public void Setup()
     {
         for (int i = 0; i < speakers.Length; i++)
         {
@@ -65,7 +65,7 @@ public class DialogueSystem : MonoBehaviour
                isTypeing = false;
 
                //타이핑 기능 중지 시킨다.
-                StopCoroutine(TypeSentence());
+                StopAllCoroutines();
                 SoundManager.Instance.StopSFX();
                 speakers[currentSpeakerIndex].dialogue.text = dialogs[currentDialogIndex].dialogue; // 대사 UI에 대사 출력
                 speakers[currentSpeakerIndex].arrow.SetActive(true);   // 현재 대사가 끝났음을 알린다.
@@ -85,9 +85,9 @@ public class DialogueSystem : MonoBehaviour
                     SetActiveObjects(speakers[i], false);
                     speakers[i].portraitImage.gameObject.SetActive(false);
                 }
-            }
 
-            return true;
+                return true;                         
+            }
         }
 
         return false;
@@ -133,6 +133,7 @@ public class DialogueSystem : MonoBehaviour
             index++;
             SoundManager.Instance.PlaySFX(SoundManager.Instance.typeText);
             yield return new WaitForSeconds(textSpeed);
+            SoundManager.Instance.StopSFX();
         }
 
         isTypeing = false;

@@ -57,6 +57,8 @@ public class FadeEffect : MonoBehaviour
 
                 yield return null;
             }
+
+            callBack();   // delegate 함수 실행
         }
 
         IEnumerator FadeInOut()

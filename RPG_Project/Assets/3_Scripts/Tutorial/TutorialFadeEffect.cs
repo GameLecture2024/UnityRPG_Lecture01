@@ -14,18 +14,17 @@ public class TutorialFadeEffect : TutorialBase
 
         if (isFadeIn)
         {
-            fadeEffect.OnFade(FadeState.FadeIn, OnAfterFadeEffect);
-            isCompleted = true;
+            fadeEffect.OnFade(FadeState.FadeIn, OnAfterFadeEffect);           
         }
         else
         {
             fadeEffect.OnFade(FadeState.FadeOut, OnAfterFadeEffect);
-            isCompleted = true;
         }
     }
 
     private void OnAfterFadeEffect()
     {
+        Debug.Log("AfterFadeEffect Test");
         isCompleted = true;
     }
 

@@ -1,0 +1,62 @@
+[
+	{
+		"IndexNumber":"0",
+		"speakerIndex":"1",
+		"name":"???",
+		"dialogue":"캐릭터의 대사가 출력됩니다."
+	},
+	{
+		"IndexNumber":"0",
+		"speakerIndex":"1",
+		"name":"???",
+		"dialogue":"캐릭터의 두번째 대사가 출력됩니다."
+	},
+	{
+		"IndexNumber":"0",
+		"speakerIndex":"0",
+		"name":"검사",
+		"dialogue":"나의 이름은 검사입니다."
+	},
+	{
+		"IndexNumber":"1",
+		"speakerIndex":"0",
+		"name":"검사",
+		"dialogue":"대화 이벤트 이 후 다른 코드를 실행할 수 있습니다"
+	},
+	{
+		"IndexNumber":"1",
+		"speakerIndex":"0",
+		"name":"검사",
+		"dialogue":"특정 조건이 만족할 때 다음 대화시스템을 호출하도록 합니다."
+	},
+	{
+		"IndexNumber":"1",
+		"speakerIndex":"0",
+		"name":"검사",
+		"dialogue":"마음 껏 튜토리얼 대사를 커스텀 해보세요!"
+	},
+	{
+		"IndexNumber":"2",
+		"speakerIndex":"0",
+		"name":"테스트",
+		"dialogue":"테스트용 첫 번째 대사"
+	},
+	{
+		"IndexNumber":"2",
+		"speakerIndex":"0",
+		"name":"테스트",
+		"dialogue":"테스트용 두 번째 대사"
+	},
+	{
+		"IndexNumber":"2",
+		"speakerIndex":"0",
+		"name":"테스트",
+		"dialogue":"테스트용 세 번째 대사"
+	},
+	{
+		"IndexNumber":"2",
+		"speakerIndex":"0",
+		"name":"테스트",
+		"dialogue":"테스트용 네 번째 대사"
+	}
+]

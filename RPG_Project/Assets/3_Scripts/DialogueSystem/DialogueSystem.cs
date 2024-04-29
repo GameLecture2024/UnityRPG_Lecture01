@@ -36,6 +36,8 @@ public class DialogueSystem : MonoBehaviour
     public float textSpeed = 0.2f;
     public bool isTypeing = false;
 
+    public int IndexNumber = 0;
+
     public void Setup()
     {
         for (int i = 0; i < speakers.Length; i++)
@@ -44,6 +46,7 @@ public class DialogueSystem : MonoBehaviour
             SetActiveObjects(speakers[i], false);      // bool값이 true이면 해당 UI 출력 
             speakers[i].portraitImage.gameObject.SetActive(false);
         }
+        dialogs = WorldDialogueData.Instance.dialogueDatabase[IndexNumber].ToArray();
     }
 
     public bool UpdateDialog()

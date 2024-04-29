@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Goblin
   m_EditorClassIdentifier: 
   zombieName: Goblin
-  HP: 30
-  Attack: 8
-  attackRange: 2
+  HP: 20
+  Attack: 2
+  attackRange: 1
+  viewRange: 0

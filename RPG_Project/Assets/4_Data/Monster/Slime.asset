@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Slime
   m_EditorClassIdentifier: 
   zombieName: Slime
-  HP: 25
+  HP: 40
   Attack: 2
-  attackRange: 5
+  attackRange: 1
+  viewRange: 0

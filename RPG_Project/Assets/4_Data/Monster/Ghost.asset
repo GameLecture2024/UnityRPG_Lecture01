@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Ghost
   m_EditorClassIdentifier: 
   zombieName: Ghost
-  HP: 80
-  Attack: 15
-  attackRange: 4
+  HP: 25
+  Attack: 3
+  attackRange: 1
+  viewRange: 0

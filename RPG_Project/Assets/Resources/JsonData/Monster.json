@@ -1,0 +1,32 @@
+[
+	{
+		"zombieName":"Imp",
+		"HP":"30",
+		"Attack":"3",
+		"attackRange":"1"
+	},
+	{
+		"zombieName":"Goblin",
+		"HP":"20",
+		"Attack":"2",
+		"attackRange":"1"
+	},
+	{
+		"zombieName":"Ghost",
+		"HP":"25",
+		"Attack":"3",
+		"attackRange":"1"
+	},
+	{
+		"zombieName":"Slime",
+		"HP":"40",
+		"Attack":"2",
+		"attackRange":"1"
+	},
+	{
+		"zombieName":"Demon",
+		"HP":"50",
+		"Attack":"1",
+		"attackRange":"1"
+	}
+]

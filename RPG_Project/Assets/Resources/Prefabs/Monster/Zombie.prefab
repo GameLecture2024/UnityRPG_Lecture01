@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5288debafb056104a8ef237c121a025a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {x: 2, y: 2, z: 2}
+  boxSize: {x: 2, y: 2, z: 2}
   layermask:
     serializedVersion: 2
     m_Bits: 256
@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 5603228911283485279}
   - component: {fileID: 2128636080276502699}
   - component: {fileID: 8410424576320768668}
+  - component: {fileID: 948450237839883745}
   m_Layer: 10
   m_Name: BattleUI
   m_TagString: Untagged
@@ -352,6 +353,19 @@ MonoBehaviour:
   refCamera: {fileID: 0}
   reverseFace: 0
   axis: 0
+--- !u!114 &948450237839883745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955362799918685391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4148e4c9504764b9192d63b8072861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpSlider: {fileID: 2556765435901322869}
 --- !u!1 &5458003380643907549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,6 +1106,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 0
+  MAXHP: 0
+  MP: 0
+  MAXMP: 0
   AttackPower: 0
   animator: {fileID: 0}
   idleTime: 1
@@ -1101,6 +1118,7 @@ MonoBehaviour:
   ViewRange: 0
   agent: {fileID: 0}
   rigidbody: {fileID: 0}
+  attackmanager: {fileID: 0}
   targetMask:
     serializedVersion: 2
     m_Bits: 256
@@ -1111,6 +1129,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   targetWayPoint: {fileID: 0}
+  battleUI: {fileID: 948450237839883745}
   zombieData: {fileID: 11400000, guid: 2c802ef5182abce40b3ae37299e89660, type: 2}
 --- !u!114 &831044651627752865
 MonoBehaviour:

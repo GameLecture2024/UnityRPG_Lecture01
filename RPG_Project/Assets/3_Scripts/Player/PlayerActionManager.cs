@@ -8,9 +8,7 @@ public class PlayerActionManager : MonoBehaviour, ISaveManager
 {
     PlayerManager player;
 
-    public Camera camera;
     public float maxDistance = 50f;
-    public LayerMask actionMask;
 
     [SerializeField] private InventoryObject equipment;
     [SerializeField] private InventoryObject inventory;
@@ -26,19 +24,7 @@ public class PlayerActionManager : MonoBehaviour, ISaveManager
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            SearchInteractObject();
-        }
-    }
 
-    private void SearchInteractObject()
-    {
-        RaycastHit hit;
-        if(Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, maxDistance, actionMask))
-        {
-
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,6 +38,12 @@ public class PlayerActionManager : MonoBehaviour, ISaveManager
             interactable.Interact(gameObject);
 
             Destroy(other.gameObject);
+        }
+
+        if (other.CompareTag("Quest"))
+        {
+            IInteractable interactable = other.GetComponent<IInteractable>();
+            interactable.Interact(gameObject);
         }
     }
 
@@ -85,27 +77,6 @@ public class PlayerActionManager : MonoBehaviour, ISaveManager
         }
 
         return false;
-    }
-
-    private void OnDrawGizmos()
-    {
-        RaycastHit hit;
-
-        bool isHit = Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, maxDistance, actionMask);
-
-
-
-        if (isHit)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawRay(camera.transform.position, camera.transform.forward * hit.distance);
-        }
-        else
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawRay(camera.transform.position, camera.transform.forward * maxDistance);
-        }
-
     }
 
     public void SaveData(ref GameData gameData)

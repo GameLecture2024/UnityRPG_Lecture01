@@ -1,0 +1,54 @@
+[
+	{
+		"id":"100",
+		"targetId":"100",
+		"count":"0",
+		"targetCount":"5",
+		"status":"None",
+		"type":"KillEnemy",
+		"rewardExp":"100",
+		"rewardGold":"1000",
+		"rewardItemId":"아이템A",
+		"title":"좀비 처치",
+		"description":"좀비 5마리 처치"
+	},
+	{
+		"id":"101",
+		"targetId":"101",
+		"count":"0",
+		"targetCount":"5",
+		"status":"None",
+		"type":"BringItem",
+		"rewardExp":"200",
+		"rewardGold":"2000",
+		"rewardItemId":"아이템B",
+		"title":"사과 가져오기",
+		"description":"사과 5개 가져오기"
+	},
+	{
+		"id":"102",
+		"targetId":"102",
+		"count":"0",
+		"targetCount":"10",
+		"status":"None",
+		"type":"KillEnemy",
+		"rewardExp":"300",
+		"rewardGold":"3000",
+		"rewardItemId":"아이템C",
+		"title":"좀비 처치",
+		"description":"좀비 10마리 처치"
+	},
+	{
+		"id":"103",
+		"targetId":"103",
+		"count":"0",
+		"targetCount":"10",
+		"status":"None",
+		"type":"BringItem",
+		"rewardExp":"400",
+		"rewardGold":"4000",
+		"rewardItemId":"아이템D",
+		"title":"사과 가져오기",
+		"description":"사과 10개 가져오기"
+	}
+]

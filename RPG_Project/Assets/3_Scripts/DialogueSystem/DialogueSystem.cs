@@ -46,6 +46,9 @@ public class DialogueSystem : MonoBehaviour
             SetActiveObjects(speakers[i], false);      // bool값이 true이면 해당 UI 출력 
             speakers[i].portraitImage.gameObject.SetActive(false);
         }
+        isFirst = true;
+        currentDialogIndex = -1;
+        currentSpeakerIndex = 0;
         dialogs = WorldDialogueData.Instance.dialogueDatabase[IndexNumber].ToArray();
     }
 
@@ -73,9 +76,7 @@ public class DialogueSystem : MonoBehaviour
                 speakers[currentSpeakerIndex].dialogue.text = dialogs[currentDialogIndex].dialogue; // 대사 UI에 대사 출력
                 speakers[currentSpeakerIndex].arrow.SetActive(true);   // 현재 대사가 끝났음을 알린다.
             }
-
-            // 대사가 남아 있을 경우에는 다음 대사를 진행
-            if (dialogs.Length > currentDialogIndex + 1)
+            else if (dialogs.Length > currentDialogIndex + 1)             // 대사가 남아 있을 경우에는 다음 대사를 진행
             {
                 SetNextDialog();
 

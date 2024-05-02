@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c5e4da41740c1498110fc333a825c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterName: Zombie
+  MonsterName: ZombieModel
 --- !u!4 &699843803
 Transform:
   m_ObjectHideFlags: 0

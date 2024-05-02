@@ -1,62 +1,176 @@
 [
 	{
 		"IndexNumber":"0",
-		"speakerIndex":"1",
+		"speakerIndex":"0",
 		"name":"???",
+		"dialogue":"대사1"
+	},
+	{
+		"IndexNumber":"0",
+		"speakerIndex":"0",
+		"name":"???",
+		"dialogue":"대사2"
+	},
+	{
+		"IndexNumber":"0",
+		"speakerIndex":"0",
+		"name":"???",
+		"dialogue":"대사3"
+	},
+	{
+		"IndexNumber":"1",
+		"speakerIndex":"0",
+		"name":"???",
+		"dialogue":"대사1"
+	},
+	{
+		"IndexNumber":"1",
+		"speakerIndex":"0",
+		"name":"???",
+		"dialogue":"대사2"
+	},
+	{
+		"IndexNumber":"1",
+		"speakerIndex":"0",
+		"name":"???",
+		"dialogue":"대사3"
+	},
+	{
+		"IndexNumber":"2",
+		"speakerIndex":"0",
+		"name":"검사",
 		"dialogue":"캐릭터의 대사가 출력됩니다."
 	},
 	{
-		"IndexNumber":"0",
-		"speakerIndex":"1",
-		"name":"???",
+		"IndexNumber":"2",
+		"speakerIndex":"0",
+		"name":"검사",
 		"dialogue":"캐릭터의 두번째 대사가 출력됩니다."
 	},
 	{
-		"IndexNumber":"0",
+		"IndexNumber":"2",
 		"speakerIndex":"0",
 		"name":"검사",
 		"dialogue":"나의 이름은 검사입니다."
 	},
 	{
-		"IndexNumber":"1",
+		"IndexNumber":"3",
 		"speakerIndex":"0",
-		"name":"검사",
+		"name":"NPC1",
 		"dialogue":"대화 이벤트 이 후 다른 코드를 실행할 수 있습니다"
 	},
 	{
-		"IndexNumber":"1",
+		"IndexNumber":"3",
 		"speakerIndex":"0",
-		"name":"검사",
+		"name":"NPC1",
 		"dialogue":"특정 조건이 만족할 때 다음 대화시스템을 호출하도록 합니다."
 	},
 	{
-		"IndexNumber":"1",
+		"IndexNumber":"3",
 		"speakerIndex":"0",
-		"name":"검사",
+		"name":"NPC1",
 		"dialogue":"마음 껏 튜토리얼 대사를 커스텀 해보세요!"
 	},
 	{
-		"IndexNumber":"2",
+		"IndexNumber":"4",
 		"speakerIndex":"0",
-		"name":"테스트",
-		"dialogue":"테스트용 첫 번째 대사"
+		"name":"검사",
+		"dialogue":"여긴.. 어디지?"
 	},
 	{
-		"IndexNumber":"2",
+		"IndexNumber":"4",
 		"speakerIndex":"0",
-		"name":"테스트",
-		"dialogue":"테스트용 두 번째 대사"
+		"name":"검사",
+		"dialogue":"마을로 이동하자"
 	},
 	{
-		"IndexNumber":"2",
+		"IndexNumber":"4",
 		"speakerIndex":"0",
-		"name":"테스트",
-		"dialogue":"테스트용 세 번째 대사"
+		"name":"검사",
+		"dialogue":"사람의 인척이 느껴진다!"
 	},
 	{
-		"IndexNumber":"2",
+		"IndexNumber":"5",
 		"speakerIndex":"0",
-		"name":"테스트",
-		"dialogue":"테스트용 네 번째 대사"
+		"name":"NPC1",
+		"dialogue":"안녕하세요"
+	},
+	{
+		"IndexNumber":"5",
+		"speakerIndex":"0",
+		"name":"NPC1",
+		"dialogue":"NPC입니다"
+	},
+	{
+		"IndexNumber":"5",
+		"speakerIndex":"0",
+		"name":"NPC1",
+		"dialogue":"…"
+	},
+	{
+		"IndexNumber":"6",
+		"speakerIndex":"0",
+		"name":"검사",
+		"dialogue":"?"
+	},
+	{
+		"IndexNumber":"6",
+		"speakerIndex":"0",
+		"name":"검사",
+		"dialogue":"뭐지"
+	},
+	{
+		"IndexNumber":"6",
+		"speakerIndex":"0",
+		"name":"검사",
+		"dialogue":"대화끝"
+	},
+	{
+		"IndexNumber":"7",
+		"speakerIndex":"0",
+		"name":"NPC2",
+		"dialogue":"정말 대단하군요."
+	},
+	{
+		"IndexNumber":"7",
+		"speakerIndex":"0",
+		"name":"NPC2",
+		"dialogue":"보상을 수령하세요."
+	},
+	{
+		"IndexNumber":"8",
+		"speakerIndex":"0",
+		"name":"NPC1",
+		"dialogue":"자네 나의 부탁을 들어줄 수 있겠는가?"
+	},
+	{
+		"IndexNumber":"8",
+		"speakerIndex":"0",
+		"name":"NPC1",
+		"dialogue":"옆 공간의 좀비 5마리를 처치해주게"
+	},
+	{
+		"IndexNumber":"9",
+		"speakerIndex":"0",
+		"name":"NPC1",
+		"dialogue":"그 사악한 무리를 전부 처치하다니 대단하군"
+	},
+	{
+		"IndexNumber":"9",
+		"speakerIndex":"0",
+		"name":"NPC1",
+		"dialogue":"여기 보상일세"
+	},
+	{
+		"IndexNumber":"10",
+		"speakerIndex":"0",
+		"name":"NPC1",
+		"dialogue":"무엇인가 물어 볼 것이 더 남았는가?"
+	},
+	{
+		"IndexNumber":"10",
+		"speakerIndex":"0",
+		"name":"NPC1",
+		"dialogue":"그게 아니라면 이 길을 따라서 진행해보시게"
 	}
 ]

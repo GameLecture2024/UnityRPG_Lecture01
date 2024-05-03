@@ -62,7 +62,11 @@ public class QuestManager : SingletonMonoBehaviour<QuestManager>
             string title = (string)jObj["title"];
             string description = (string)jObj["description"];
 
-            Quest newQuest = new Quest(id, targetId, count, targetCount, status, type, reward, title, description);
+            int StartIndexNumber = int.Parse((string)jObj["StartIndexNumber"]);
+            int CompleteIndexNumber = int.Parse((string)jObj["CompleteIndexNumber"]);
+            int EndIndexnumber = int.Parse((string)jObj["EndIndexnumber"]);
+
+            Quest newQuest = new Quest(id, targetId, count, targetCount, status, type, reward, title, description, StartIndexNumber, CompleteIndexNumber, EndIndexnumber);
 
             if(currentId != int.Parse((string)jObj["id"]))
             {

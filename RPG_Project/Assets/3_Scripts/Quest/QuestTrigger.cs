@@ -22,13 +22,18 @@ public class QuestTrigger : MonoBehaviour, IInteractable
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            QuestManager.Instance.ProcessQuest(QuestType.KillEnemy, questId);
+            QuestManager.Instance.ProcessQuest(myQuest.type, questId);
         }
     }
 
     public void Interact(GameObject go)
     {
         if (nowSpeaking) return;
+
+        if (QuestManager.Instance.questDatabase[myQuest.id].type == QuestType.Ending && myQuest.status == QuestStatus.Rewarded)
+        {
+            Ending.Instance.PlayEndingScene();
+        }
 
         // QuestDatabase에서 자신이 갖고 있는 Quest Data와 TargetId가 같고, 해당 타겟의 Status가 None일 경우 실행
 
@@ -38,19 +43,19 @@ public class QuestTrigger : MonoBehaviour, IInteractable
             QuestManager.Instance.LoadQuestUI(myQuest, false);
 
             // 퀘스트 대사 출력
-            inGameDialogueSystem.IndexNumber = 8;  // 향 후 변경사항 : Quest Class안의 quest.AcceptDialogue
+            inGameDialogueSystem.IndexNumber = myQuest.StartIndexNumber;  // 향 후 변경사항 : Quest Class안의 quest.AcceptDialogue
             inGameDialogueSystem.Setup();
             StartCoroutine(InGameDialogue(inGameDialogueSystem, QuestStatus.Accepted));
         }
         else if (QuestManager.Instance.questDatabase[myQuest.id].status == QuestStatus.Completed)
         {
-            inGameDialogueSystem.IndexNumber = 9;
+            inGameDialogueSystem.IndexNumber = myQuest.CompleteIndexNumber;
             inGameDialogueSystem.Setup();
             StartCoroutine(InGameDialogue(inGameDialogueSystem, QuestStatus.Rewarded));
         }
         else if (QuestManager.Instance.questDatabase[myQuest.id].status == QuestStatus.Rewarded)
         {
-            inGameDialogueSystem.IndexNumber = 10;
+            inGameDialogueSystem.IndexNumber = myQuest.EndIndexnumber;
             inGameDialogueSystem.Setup();
             StartCoroutine(InGameDialogue(inGameDialogueSystem, QuestStatus.Rewarded));
         }

@@ -10,7 +10,7 @@ public enum QuestStatus
 
 public enum QuestType // 퀘스트 수행 조건에 사용될 변수
 {
-    KillEnemy, BringItem
+    KillEnemy, BringItem, Ending
 }
 
 [System.Serializable]
@@ -42,6 +42,11 @@ public class Quest
     public QuestType type;     // 퀘스트의 타입
     public QuestReward reward; // 퀘스트 보상
 
+    [Header("대사")]
+    public int StartIndexNumber;    // 퀘스트 시작 대사 인덱스 번호
+    public int CompleteIndexNumber; // 퀘스트 완료 대사 인덱스 번호
+    public int EndIndexnumber;      // 퀘스트 완료 이 후 대사 인덱스 번호
+
     [Header("UI")]
     public string title;
     public string description;
@@ -49,7 +54,7 @@ public class Quest
     public Quest() { }  // default 생성자
 
     public Quest(int id, int targetId, int count, int targetCount, QuestStatus status, 
-        QuestType type, QuestReward reward, string title, string description)
+        QuestType type, QuestReward reward, string title, string description, int startIndexNumber, int completeIndexNumber, int endIndexnumber)
     {
         this.id = id;
         this.targetId = targetId;
@@ -60,5 +65,8 @@ public class Quest
         this.reward = reward;
         this.title = title;
         this.description = description;
+        this.StartIndexNumber = startIndexNumber;
+        this.CompleteIndexNumber = completeIndexNumber;
+        this.EndIndexnumber = endIndexnumber;
     }
 }

@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TutorialScene.unity
+    path: Assets/RPG/Scenes/TutorialScene.unity
     guid: 2eeedd53cdd63a949945d34c1636d3a2
   - enabled: 1
-    path: Assets/Scenes/LoadingScene.unity
+    path: Assets/RPG/Scenes/LoadingScene.unity
     guid: d4f86893805cd8c48973ac9e2e055f86
   - enabled: 1
-    path: Assets/Scenes/BattleScene.unity
+    path: Assets/RPG/Scenes/BattleScene.unity
     guid: bd1bb0defc192194e8cc14ce7a2ddcb7
   - enabled: 1
-    path: Assets/Scenes/TitleScene.unity
+    path: Assets/RPG/Scenes/TitleScene.unity
     guid: 0ddf6390e20f17c478d501a139a87db9
   m_configObjects: {}
